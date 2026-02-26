@@ -10,54 +10,38 @@
         private ProgressBar progressBarBewertung;
         private PictureBox pictureBoxCover;
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null)) components.Dispose();
-            base.Dispose(disposing);
-        }
+        protected override void Dispose(bool disposing) { if (disposing && (components != null)) components.Dispose(); base.Dispose(disposing); }
 
         private void InitializeComponent()
         {
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            lblAnime = new Label(); lblUpdateHinweis = new Label(); lblBewertung = new Label(); lblStaffelInfo = new Label(); lblFortsetzung = new Label();
+            btnUpdate = new Button(); button1 = new Button(); btnSuche = new Button(); btnHinzufuegen = new Button(); btnEntfernen = new Button(); btnNeustarten = new Button();
+            txtSuche = new TextBox(); txtBeschreibung = new TextBox(); listBoxErgebnisse = new ListBox(); progressBarBewertung = new ProgressBar(); pictureBoxCover = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCover).BeginInit();
+            SuspendLayout();
 
-            lblAnime = new Label { Font = new Font("Segoe UI", 20F, FontStyle.Bold), Location = new Point(20, 20), Size = new Size(500, 40), Text = "Anime Name" };
-            lblUpdateHinweis = new Label { Location = new Point(1080, 680), Size = new Size(180, 20), ForeColor = Color.Orange };
-            btnUpdate = new Button { Location = new Point(1080, 650), Size = new Size(100, 25), Text = "Update", Visible = false };
-            btnUpdate.Click += btnUpdate_Click;
-
-            lblBewertung = new Label { Location = new Point(20, 80), Size = new Size(300, 25) };
-            lblStaffelInfo = new Label { Location = new Point(20, 110), Size = new Size(400, 25) };
-            lblFortsetzung = new Label { Location = new Point(20, 140), Size = new Size(300, 25) };
-
-            txtSuche = new TextBox { Location = new Point(20, 180), Size = new Size(500, 23) };
-            button1 = new Button { Location = new Point(540, 20), Size = new Size(100, 40), Text = "Zufall" };
-            button1.Click += button1_Click;
-            btnSuche = new Button { Location = new Point(540, 70), Size = new Size(100, 30), Text = "Suchen" };
-            btnSuche.Click += btnSuche_Click;
-            btnHinzufuegen = new Button { Location = new Point(540, 110), Size = new Size(100, 30), Text = "Hinzufügen" };
-            btnHinzufuegen.Click += btnHinzufuegen_Click;
-            btnEntfernen = new Button { Location = new Point(540, 150), Size = new Size(100, 30), Text = "Entfernen" };
-            btnEntfernen.Click += btnEntfernen_Click;
-            btnNeustarten = new Button { Location = new Point(540, 190), Size = new Size(100, 30), Text = "Neustarten" };
-            btnNeustarten.Click += btnNeustarten_Click;
-
-            listBoxErgebnisse = new ListBox { Location = new Point(20, 220), Size = new Size(620, 199) };
-            listBoxErgebnisse.SelectedIndexChanged += listBoxErgebnisse_SelectedIndexChanged;
-
-            txtBeschreibung = new TextBox { Location = new Point(20, 440), Size = new Size(620, 200), Multiline = true, ScrollBars = ScrollBars.Vertical };
-
-            progressBarBewertung = new ProgressBar { Location = new Point(20, 400), Size = new Size(300, 25) };
-            pictureBoxCover = new PictureBox { Location = new Point(660, 20), Size = new Size(600, 620), SizeMode = PictureBoxSizeMode.Zoom };
-
-            Controls.AddRange(new Control[] { lblAnime, lblUpdateHinweis, btnUpdate, lblBewertung, lblStaffelInfo, lblFortsetzung,
-                button1, btnSuche, btnHinzufuegen, btnEntfernen, btnNeustarten, txtSuche, listBoxErgebnisse, txtBeschreibung,
-                progressBarBewertung, pictureBoxCover });
+            lblAnime.Font = new Font("Segoe UI", 20F, FontStyle.Bold); lblAnime.Location = new Point(20, 20); lblAnime.Size = new Size(600, 40);
+            lblUpdateHinweis.Anchor = AnchorStyles.Top | AnchorStyles.Right; lblUpdateHinweis.Location = new Point(980, 20); lblUpdateHinweis.Size = new Size(220, 23);
+            lblBewertung.Location = new Point(20, 80); lblBewertung.Size = new Size(300, 23);
+            lblStaffelInfo.Location = new Point(20, 140); lblStaffelInfo.Size = new Size(500, 23);
+            lblFortsetzung.Location = new Point(20, 165); lblFortsetzung.Size = new Size(500, 23);
+            btnUpdate.Anchor = AnchorStyles.Top | AnchorStyles.Right; btnUpdate.Location = new Point(1205, 18); btnUpdate.Size = new Size(75, 27); btnUpdate.Text = "Update"; btnUpdate.Click += btnUpdate_Click;
+            button1.Location = new Point(550, 210); button1.Size = new Size(120, 35); button1.Text = "Zufall"; button1.Click += button1_Click;
+            btnSuche.Location = new Point(430, 208); btnSuche.Size = new Size(90, 27); btnSuche.Text = "Suchen"; btnSuche.Click += btnSuche_Click;
+            btnHinzufuegen.Location = new Point(550, 255); btnHinzufuegen.Size = new Size(120, 30); btnHinzufuegen.Text = "Hinzufügen"; btnHinzufuegen.Click += btnHinzufuegen_Click;
+            btnEntfernen.Location = new Point(550, 295); btnEntfernen.Size = new Size(120, 30); btnEntfernen.Text = "Entfernen"; btnEntfernen.Click += btnEntfernen_Click;
+            btnNeustarten.Location = new Point(550, 335); btnNeustarten.Size = new Size(120, 30); btnNeustarten.Text = "Neustarten"; btnNeustarten.Click += btnNeustarten_Click;
+            txtSuche.Location = new Point(20, 210); txtSuche.Size = new Size(400, 23);
+            txtBeschreibung.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right; txtBeschreibung.Location = new Point(20, 460); txtBeschreibung.Multiline = true; txtBeschreibung.ScrollBars = ScrollBars.Vertical; txtBeschreibung.Size = new Size(760, 200);
+            listBoxErgebnisse.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left; listBoxErgebnisse.Location = new Point(20, 245); listBoxErgebnisse.Size = new Size(500, 199); listBoxErgebnisse.SelectedIndexChanged += listBoxErgebnisse_SelectedIndexChanged;
+            progressBarBewertung.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right; progressBarBewertung.Location = new Point(20, 105); progressBarBewertung.Size = new Size(500, 23);
+            pictureBoxCover.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right; pictureBoxCover.Location = new Point(800, 70); pictureBoxCover.Size = new Size(460, 590); pictureBoxCover.SizeMode = PictureBoxSizeMode.Zoom;
 
             ClientSize = new Size(1280, 720);
-            MinimumSize = new Size(800, 450);
-            Text = "Anime Randomizer";
-            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            Load += Form1_Load;
+            Controls.AddRange(new Control[] { lblAnime, lblUpdateHinweis, btnUpdate, lblBewertung, progressBarBewertung, lblStaffelInfo, lblFortsetzung, txtSuche, btnSuche, listBoxErgebnisse, txtBeschreibung, button1, btnHinzufuegen, btnEntfernen, btnNeustarten, pictureBoxCover });
+            Icon = (Icon)resources.GetObject("$this.Icon"); MinimumSize = new Size(1000, 600); Name = "Form1"; Text = "Anime Randomizer"; Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCover).EndInit(); ResumeLayout(false); PerformLayout();
         }
     }
 }
